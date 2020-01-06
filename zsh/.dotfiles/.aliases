@@ -1,0 +1,80 @@
+
+alias re-addkey="ssh-agent && ssh-add -K ~/.ssh/bb_rsa"
+alias bddkey="ssh-agent && ssh-add -K ~/.ssh/bd_rsa"
+alias cd..="cd .."
+alias cd~="cd ~"
+alias cbp="code ~/.zshrc"
+alias szrc="source ~/.zshrc"
+
+alias gf="git fetch"
+alias gc="git checkout"
+alias gstash="git stash"
+alias gspop="git stash pop"
+alias grc="git rebase --continue"
+alias gmaster="gf && gc master"
+alias gstaging="gf && gc staging && git pull && gc -"
+alias guat="gf && gc uat && git pull && gc -"
+alias gpos="git pull origin staging"
+alias abortmerge="git merge --abort"
+alias chash="git log --pretty=format:'%h' -n 1"
+alias gwip="git commit -m 'WIP.'"
+alias difflast="git diff @~..@"
+
+# Android
+alias adbrev="adb reverse tcp:3001 tcp:3001 && adb reverse tcp:3030 tcp:3030 && adb reverse tcp:4000 tcp:4000 && adb reverse tcp:8001 tcp:8001"
+alias pixel2on27="emulator @Pixel_2_API_27 -dns-server 8.8.8.8"
+alias pixel2on28="emulator @Pixel_2_API_28 -dns-server 8.8.8.8"
+alias anddev="adb shell input keyevent 82"
+alias releaseapk="adb install ~/Downloads/app-release.apk"
+alias debugapk="adb install ~/Downloads/app-debug.apk"
+
+alias nbc="rm ~/.babel.json"
+
+## NPM & Yarn
+alias listdashgs="npm list -g --depth=0"
+alias npmi="rm -rf node_modules && npm i"
+
+alias prtrcheck="npx prettier --check 'src/**/*'"
+alias prtrwrite="npx prettier --write 'src/**/*'"
+
+# Stress Testing Tests
+alias 10tests="rm -rf test_logs && mkdir test_logs &&
+runcoverage -- --json --outputFile='./test_logs/test_1.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_2.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_3.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_4.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_5.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_6.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_7.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_8.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_9.json' &&
+runcoverage -- --json --outputFile='./test_logs/test_10.json';"
+alias testlogs="grep -iRl '"status":"failed"' ./test_logs";
+
+alias lintme="clear && yarn lint"
+
+# Running stuff
+## API
+alias runserve="clear && npm run serve"
+
+## Yarn Project
+alias runbuild="clear && yarn build"
+alias runcoverage="clear && yarn coverage"
+alias runtest="clear && yarn test --watch"
+alias runsb="clear && yarn storybook"
+alias runstart="clear && yarn start"
+alias runwatch="clear && yarn watch"
+
+## Local Serverless
+alias runlocal="clear && npm run serve:local"
+
+## React Native Project
+alias runandroid="clear && yarn android"
+alias runios="clear && yarn ios"
+alias runiosxsm="clear && yarn ios --simulator='iPhone XS Max'"
+alias runios8="clear && yarn ios --simulator='iPhone 8'"
+alias runiosse="clear && yarn ios --simulator='iPhone SE'"
+alias runiosmine="clear && yarn ios --device='Barns iPhone SE'"
+
+# Cache Clearing
+alias boom="clear && watchman watch-del-all && rm -rf /tmp/metro-bundler-cache-* && rm -rf /tmp/haste-map-react-native-packager-*"
